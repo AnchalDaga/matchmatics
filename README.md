@@ -49,9 +49,6 @@ Sports generate huge amounts of data, but analysts, coaches, and fans often end 
   <img src="screenshots/fifa-dashboard.gif" alt="Matchmatics FIFA dashboard" width="650">
 </p>
 
-<p align="center"><sub>
-The full database is several GB (NBA, FIFA, and ODI cricket), so it isn't hosted and there is no live demo. The preview above was recorded running locally against the full database.
-</sub></p>
 
 ---
 
