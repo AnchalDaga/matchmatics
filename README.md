@@ -43,6 +43,18 @@ Sports generate huge amounts of data, but analysts, coaches, and fans often end 
 
 ---
 
+## Preview: FIFA dashboard
+
+<p align="center">
+  <img src="screenshots/fifa-dashboard.gif" alt="Matchmatics FIFA dashboard" width="650">
+</p>
+
+<p align="center"><sub>
+The full database is several 5.8 GB (NBA, FIFA, and ODI cricket), so it isn't hosted and there is no live demo. The preview above was recorded running locally against the full database.
+</sub></p>
+
+---
+
 ## 3. My contribution
 
 This was a three-person team project. My work covered the **FIFA side of the database** and the **entire frontend**.
@@ -58,38 +70,11 @@ This was a three-person team project. My work covered the **FIFA side of the dat
 
 - Built the full React + TypeScript web app.
 - Designed the sport-selection flow, so users choose cricket, football, or basketball and are taken to that sport's dashboard.
-- Built the dashboard visualizations that surface statistics from the database.
+- Built the dashboard visualizations (stat cards, line, pie, and bar charts) that surface statistics from the database.
 - Built the query interface that lets users fetch data from each sport's tables.
 - Styled the UI with Bootstrap and Tailwind CSS.
 
 ---
-
-## 4. Screenshots and demo
-
-### Demo
-
-![Matchmatics demo](screenshots/demo.gif)
-
-### Sport selection
-![Sport selection](screenshots/sport-selection.png)
-
-### Dashboard
-![Dashboard](screenshots/dashboard.png)
-
-### Query interface
-![Query interface](screenshots/query-interface.png)
-
----
-
-## Project structure
-
-```
-matchmatics/
-├── BACKEND/       # Server code that connects to PostgreSQL
-├── public/        # Static assets
-├── server/        # API server
-└── src/           # React + TypeScript frontend
-```
 
 ## Team
 
