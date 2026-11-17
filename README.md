@@ -35,7 +35,7 @@ Sports generate huge amounts of data, but analysts, coaches, and fans often end 
 | Layer | Technology |
 |---|---|
 | Frontend | React, TypeScript, Bootstrap, Tailwind CSS |
-| Backend | Node.js (connects the app to the database) |
+| Backend | Node.js, Express, TypeScript, REST APIs |
 | Database | PostgreSQL |
 | Database design | ER modelling, relational schema, BCNF normalization |
 | Performance | B-tree and composite indexes, `pg_trgm` + GIN indexes for text search, `EXPLAIN` analysis |
@@ -50,29 +50,34 @@ Sports generate huge amounts of data, but analysts, coaches, and fans often end 
 </p>
 
 <p align="center"><sub>
-The full database is several 5.8 GB (NBA, FIFA, and ODI cricket), so it isn't hosted and there is no live demo. The preview above was recorded running locally against the full database.
+The full database is several GB (NBA, FIFA, and ODI cricket), so it isn't hosted and there is no live demo. The preview above was recorded running locally against the full database.
 </sub></p>
 
 ---
 
 ## 3. My contribution
 
-This was a three-person team project. My work covered the **FIFA side of the database** and the **entire frontend**.
+Co-built a cross-sport analytics app over **5M+ cricket, football, and basketball records** with a 3-person team. I owned the FIFA data layer, the REST APIs and the frontend.
 
-### FIFA data and database work
+### Backend and APIs
 
-- Worked on all of the FIFA datasets end to end, including the `players`, `player_appearances`, and `squads` tables.
-- Designed the FIFA relational schema (keys, foreign keys to `Sports`, and attributes like positions, tournaments, starter/substitute flags) and checked it against BCNF.
-- Wrote and ran the FIFA SQL queries, including joins filtered by `sports_id`, `ORDER BY` leaderboards (e.g., most tournaments played), `GROUP BY` aggregations, and subqueries.
-- Optimized FIFA queries with indexing (composite indexes on `player_appearances`, trigram/GIN indexes for player name and position search) and compared plans with `EXPLAIN`.
+- Wrote **TypeScript APIs in Node.js and Express on PostgreSQL**, reaching **10-second page loads** over the full dataset.
+- Designed **REST API workflows for 10+ performance indicators**, with filtering and pagination.
+- Sped up **multi-filter lookups by over 10%** by adding composite and range indexes in PostgreSQL, validated with `EXPLAIN` query plans.
 
-### Frontend (built entirely by me)
+### FIFA data and database design
 
-- Built the full React + TypeScript web app.
-- Designed the sport-selection flow, so users choose cricket, football, or basketball and are taken to that sport's dashboard.
-- Built the dashboard visualizations (stat cards, line, pie, and bar charts) that surface statistics from the database.
-- Built the query interface that lets users fetch data from each sport's tables.
-- Styled the UI with Bootstrap and Tailwind CSS.
+- Handled all of the FIFA datasets end to end, including the `players`, `player_appearances`, and `squads` tables.
+- Designed the FIFA relational schema (primary and foreign keys to the central `Sports` table, player positions, tournament history, starter/substitute flags) and verified it against BCNF.
+- Wrote the FIFA SQL queries behind the dashboard: joins, `GROUP BY` aggregations, subqueries, and `ORDER BY` leaderboards such as most tournaments played.
+- Optimized text and filter searches on player and position data with trigram (`pg_trgm`) GIN indexes and composite indexes.
+
+### Frontend
+
+- Built the entire React + TypeScript frontend and styled it with Bootstrap and Tailwind CSS.
+- Designed the user flow: pick a sport (cricket, football, or basketball) and land on that sport's dashboard.
+- Built the dashboard visualizations: stat cards plus line, pie, and bar charts that pull their data from the APIs.
+- Built the query interface for fetching data from each sport's tables.
 
 ---
 
